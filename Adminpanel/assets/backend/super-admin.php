@@ -9,9 +9,28 @@ if (isset($_POST['submit'])) {
     $phone = $_POST['phone'];
     $address = $_POST['address'];
     $password = $_POST['password'];
+    $filename = $_FILES["choosefile"]["name"];
+    $tempname = $_FILES["choosefile"]["tmp_name"];  
+    
+    $folder = "uploads/".$filename;
 
-    $sql = "INSERT INTO admin (name, username, email, phone, address, password) VALUES ('$fullname', '$username', '$email', '$phone', '$address', '$password')";
-    // Check if the username already exists
+    $sql = "INSERT INTO admin (name, username, email, phone, address, password,image) VALUES ('$fullname', '$username', '$email', '$phone', '$address', '$password','$filename')";
+
+
+
+    if (move_uploaded_file($tempname, $folder)) {
+        $msg = "Image uploaded successfully";
+        // Store filename in session
+         // Corrected variable name
+        
+    } else {
+        $msg = "Failed to upload image";
+        // Display message for failed upload
+        echo "<script>alert('not upload image');</script>";
+        // Stop execution if image upload fails
+        die();
+    }
+
     $checkQuery = "SELECT * FROM admin WHERE username = '$username'";
     $result = $conn->query($checkQuery);
 
