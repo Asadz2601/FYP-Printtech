@@ -14,7 +14,8 @@ x<!-- ======= Footer ======= -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.datatables.net/2.0.0/js/dataTables.min.js"></script>
   
-  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
