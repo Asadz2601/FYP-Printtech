@@ -26,14 +26,14 @@ include"assets/backend/login.php";
         <div class="col-md-4"></div>
         <div class="col-md-4">
           <div class="container pt-5 login-box">
-            <h3 class="text-center" id="color">Login To Your Account</h3>
+            <h3 class="text-center" id="color">Login To Admin Account</h3>
             <h6 class="text-center text-secondary pb-3"><small>Enter your username & password to login</small></h6>
             <form action="" method="post">
               <h5 class="font-weight-light"><small>Username</small></h5>
               <div class="input-group mb-3 d-flex">
-                <div class="input-group-prepend">
-                  <span class="input-group-text" id="background">@</span>
-                </div>
+                <!-- <div class="input-group-prepend">
+                  <span class="input-group-text" id="background"></span>
+                </div> -->
                 <input type="text" class="form-control" name="username" required>
               </div>
               <h5><small>Password</small></h5>
@@ -42,8 +42,8 @@ include"assets/backend/login.php";
               <label for="flexCheckChecked" class="form-check-label pb-3">Remember Me</label>
               <button class="btn btn-primary w-100" name="submit">Login</button>
             </form>
-            <h6 class="text-center pt-3"><a href="#">Forgot Password?</a></h6>
-            <h6 class="text-center pt-3">Don't have account?<a href="#">Create an account</a></h6>
+            <!-- <h6 class="text-center pt-3"><a href="#">Forgot Password?</a></h6>
+            <h6 class="text-center pt-3">Don't have account?<a href="#">Create an account</a></h6> -->
           </div>
           <div class="col-md-4"></div>
         </div>
