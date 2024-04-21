@@ -5,7 +5,7 @@ include("side.php");
 
 
 $count = 0;
-$query = "SELECT COUNT(*) AS total_users FROM `users`"; // using COUNT(*) to directly get the count from the database result
+$query = "SELECT COUNT(*) AS total_users FROM `users`"; // using COUNT(*) to directly get the count from the database table
 $result = mysqli_query($conn, $query);
 
 if ($result) {
@@ -16,7 +16,7 @@ if ($result) {
 }
 
 $count1 = 0;
-$query1 = "SELECT COUNT(*) AS total_orders FROM `order`"; // using COUNT(*) to directly get the count from the database
+$query1 = "SELECT COUNT(*) AS total_orders FROM `order`"; // using COUNT(*) to directly get the count from the database table
 $result1 = mysqli_query($conn, $query1);
 
 if ($result1) {
@@ -27,7 +27,7 @@ if ($result1) {
 }
 
 $count2 = 0;
-$query2 = "SELECT COUNT(*) AS total_admins FROM `admin`"; // using COUNT(*) to directly get the count from the database
+$query2 = "SELECT COUNT(*) AS total_admins FROM `admin`"; // using COUNT(*) to directly get the count from the database table
 $result2 = mysqli_query($conn, $query2);
 
 if ($result2) {
@@ -38,7 +38,7 @@ if ($result2) {
 }
 
 $count3 = 0;
-$query3 = "SELECT COUNT(*) AS total_products FROM `product`"; // using COUNT(*) to directly get the count from the database
+$query3 = "SELECT COUNT(*) AS total_products FROM `product`"; // using COUNT(*) to directly get the count from the database table
 $result3 = mysqli_query($conn, $query3);
 
 if ($result3) {
@@ -49,7 +49,7 @@ if ($result3) {
 }
 
 
-// Data for the pie chart
+// Data for the Pie Chart 
 $data = [
     "Users" => $count,
     "Orders" => $count1,
@@ -57,7 +57,7 @@ $data = [
     "Products" => $count3
 ];
 
-// Convert data to JSON format
+// Convert data to JSON format!!!
 $data_json = json_encode($data);
     ?>
 
