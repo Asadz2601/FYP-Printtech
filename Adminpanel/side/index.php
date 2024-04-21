@@ -5,7 +5,7 @@ include("side.php");
 
 
 $count = 0;
-$query = "SELECT COUNT(*) AS total_users FROM `users`"; // using COUNT(*) to directly get the count from the database
+$query = "SELECT COUNT(*) AS total_users FROM `users`"; // using COUNT(*) to directly get the count from the database result
 $result = mysqli_query($conn, $query);
 
 if ($result) {
@@ -99,7 +99,7 @@ $data_json = json_encode($data);
                     <div class="card bg-danger " style="width: 14rem;">
                         <div class="card-body">
                           <h2 class="card-title font-weight-bolder text-light" style="font-weight:bolder;font-size:large;"><?php echo $count3; ?></h2>
-                          <h6 class="card-subtitle mb-2  text-light">Products</h6>
+                          <h6 class="card-Subtitle mb-2  text-light">Products</h6>
                         </div>
                     </div>
                 </div>
