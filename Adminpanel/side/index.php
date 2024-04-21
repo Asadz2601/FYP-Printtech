@@ -57,7 +57,7 @@ $data = [
     "Products" => $count3
 ];
 
-// Convert data to JSON format!!!
+// Convert data to JSON format!!!!
 $data_json = json_encode($data);
     ?>
 
@@ -75,7 +75,7 @@ $data_json = json_encode($data);
                         <div class="card-body">
                           <h2 class="card-title font-weight-bolder text-light" style="font-weight:bolder;font-size:large;"><?php echo $count; ?></h2>
                           <h6 class="card-subtitle mb-2  text-light">Users</h6>
-                          <!-- <i class="bi bi-bar-chart" style="font-size: 5rem; width: 5rem; height: 5rem;"></i> -->
+                          <!-- <i class="bi bi-bar-chart" style="font-size: 5rem ; width: 5rem; height: 5rem ;"></i> -->
                         </div>
                     </div>
                 </div>
