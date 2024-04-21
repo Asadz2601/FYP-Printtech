@@ -45,6 +45,18 @@ if ($username === "admin" ) {
   </li><!-- End Tables Nav -->
   
   <li class="nav-item">
+    <a class="nav-link collapsed" href="all-orders.php">
+      <i class="bi bi-layout-text-window-reverse"></i><span>All Orders</span></i>
+    </a>
+  </li><!-- End Tables Nav -->
+
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="design.php">
+      <i class="bi bi-layout-text-window-reverse"></i><span>Design</span></i>
+    </a>
+  </li><!-- End Tables Nav -->
+
+  <li class="nav-item">
     <a class="nav-link collapsed" href="pending-order.php">
       <i class="bi bi-gem"></i><span>Pending Order</span></i>
     </a>

@@ -28,7 +28,7 @@
   <link href="assets/css/style2.css" rel="stylesheet">
   <link href="assets/css/style.css" rel="stylesheet"> 
 
-
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <!-- Template Main CSS File -->
     <style>
       .dt-paging .dt-paging-button.current{

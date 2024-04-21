@@ -23,9 +23,9 @@ include("assets/backend/add-product.php");
        <label for="size" class="form-label">Size</label>
       <select name="size" class="form-select" id="size" required>
         <option selected disabled>Select Size</option>
-        <option >Size 1</option>
-        <option >Size 2</option>
-        <option >Size 3</option>
+        <option >12*8</option>
+        <option >22*12</option>
+        <option >9*7</option>
         
        </select>
       </div>
@@ -44,10 +44,16 @@ include("assets/backend/add-product.php");
         
        </select>
       </div>
+     
      <div class="mb-3">
-        <label for="exampleInputAddress1" class="form-label">Cutting</label>
-        <input type="text" name="cutting" class="form-control" id="exampleInputAddress1" required>
-     </div>
+       <label for="exampleInputAddress1" class="form-label">Cutting</label>
+      <select name="cutting" class="form-select" id="exampleInputAddress1" required>
+        <option value="" selected disabled>Select Cutting</option>
+        <option value="Straight">Striaght</option>
+        <option value="Round">Round</option>      
+       </select>
+      </div>
+
      <div class="mb-3 form-check">
         <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
         <label class="form-check-label" for="exampleCheck1">Check me out</label>
