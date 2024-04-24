@@ -23,7 +23,7 @@ include("side.php");
     <tbody>
 
 
-<!-- Fetch data from database!!! -->
+<!-- Fetch data from database -->
 <?php
 if (isset($_POST['delete'])) {
     if (isset($_POST['delete'])) {
