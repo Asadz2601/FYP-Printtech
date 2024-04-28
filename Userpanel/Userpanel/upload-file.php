@@ -1,6 +1,7 @@
 <?php
 session_start();
 include('connect/db.php');
+$id = $_SESSION['order_id'];
 $name = $_SESSION['username'];
 if(isset($_REQUEST['delete'])){
   $sql = "DELETE  FROM uploadfile WHERE username = '$name'";
@@ -19,31 +20,43 @@ if(isset($_REQUEST['delete'])){
 $filename  = "";
 $file_tmp = "";
 $msg = "";
+
+// Assuming you have established a database connection already
+
+// Check if form is submitted
 if (isset($_POST['submit'])) {
 
-  $allowedext = array('pdf');
-  $filename  = $_FILES['pdffile']['name'];
-  $file_tmp = $_FILES['pdffile']['tmp_name'];
-  $filetype = $_FILES['pdffile']['type'];
-  $ext = pathinfo($filename, PATHINFO_EXTENSION);
+  // Check if a file is uploaded
+  if(isset($_FILES['pdffile']) && $_FILES['pdffile']['error'] === UPLOAD_ERR_OK) {
 
-  if (!in_array($ext, $allowedext)) {
-    
-    $msg = "<script>alert('Please Upload Only PDF File');</script>";
-    
+      $allowedext = array('pdf');
+      $filename   = $_FILES['pdffile']['name'];
+      $file_tmp   = $_FILES['pdffile']['tmp_name'];
+      $filetype   = $_FILES['pdffile']['type'];
+
+      $ext = pathinfo($filename, PATHINFO_EXTENSION);
+
+      if (!in_array($ext, $allowedext)) {
+          echo "<script>alert('Please Upload Only PDF File');</script>";
+      } else {
+          echo "<script>alert('File Upload Successfully');</script>";
+          move_uploaded_file($file_tmp, "upload_PDF/" . $filename);
+          
+                   // Insert into database
+          $sql = "INSERT INTO uploadfile (order_id, username, filename, filetype) VALUES ('$id', '$name', '$filename', '$filetype')";
+          
+          $res = mysqli_query($conn, $sql);
+          if ($res) {
+              echo "File Uploaded Successfully";
+          } else {
+              echo "Show Error";
+          }
+      }
   } else {
-    echo "<script>alert('File Upload Successfully');</script>";
-    move_uploaded_file($file_tmp, "upload_PDF/" . $filename);
-    $sql = "INSERT INTO uploadfile (username,filename,filetype) VALUES ('$name','$filename','$filetype')";
-    
-    $res = mysqli_query($conn, $sql);
-    if ($res) {
-      echo "File Uploaded Successfully";
-    } else {
-      echo "Show Error";
-    }
+      echo "No file uploaded or error occurred.";
   }
 }
+
 
 if (!(isset($_SESSION['username']))) {
   header("Location: pages-login.php");
@@ -276,6 +289,7 @@ if ($row = mysqli_fetch_assoc($result)) {
     </div><!-- End Page Title -->
 
 
+    
 
 
 
@@ -299,8 +313,7 @@ if ($row = mysqli_fetch_assoc($result)) {
         <h3 style="font-family:'Times New Roman', Times, serif; font-weight: bold;">UPLOAD YOUR DESIGN FILE</h3>
             <div class="mb-3">
               <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
-
-                <!-- <img src="http://100dayscss.com/codepen/upload.svg" class="upload-icon" /> -->
+               <!-- <img src="http://100dayscss.com/codepen/upload.svg" class="upload-icon" /> -->
                 <input style="height: 150px;" class="form-control" name="pdffile" type="file" id="upload">
             </div>
             <div class="pre-next-btn" style="margin-top: 25px; float: right;">
@@ -313,7 +326,7 @@ if ($row = mysqli_fetch_assoc($result)) {
               <button style="background-color: #3498db;
         padding: 10px 20px; font-size: 16px; color: #fff; border: none; border-radius: 5px; cursor: pointer; text-decoration: none;" class="btn" type="delete" name="delete">Delete</button>  
               <a style="background-color: #3498db;
-        padding: 10px 20px; font-size: 16px; color: #fff; border: none; border-radius: 5px; cursor: pointer; text-decoration: none;" href="orderdetails.php">Next</a>
+        padding: 10px 20px; font-size: 16px; color: #fff; border: none; border-radius: 5px; cursor: pointer; text-decoration: none;" href="customerdetail.php">Next</a>
             </div>
           </div>
           </form>

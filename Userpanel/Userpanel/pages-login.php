@@ -10,29 +10,27 @@ if (isset($_REQUEST['submit'])) {
       $username = $_SESSION['username'];
       
       // Use single quotes around the variable in the SQL query
-      $sql1 = "SELECT username FROM profile WHERE username='$username'";
+      // $sql1 = "SELECT username FROM profile WHERE username='$username'";
   
-      // Execute the SQL query
-      $result1 = mysqli_query($conn, $sql1);
+      // // Execute the SQL query
+      // $result1 = mysqli_query($conn, $sql1);
   
-      if ($result1) {
+      // if ($result1) {
           // Check if any rows were returned
-          if (mysqli_num_rows($result1) > 0) {
+          // if (mysqli_num_rows($result1) > 0) {
               
-              header("Location: index.php");
-          } else {
-              header("Location: profile.php");
-          }
+               header("Location: index.php");
+          // } else {
+          //     //header("Location: profile.php");
+          // }
       } else {
           echo "Error in query: " . mysqli_error($conn);
       }
   } 
   
   } 
-  else {
-    echo '<script>alert("Your entered wrong email or password");</script>';
-}
-}
+  
+
 
 ?>
 
@@ -94,7 +92,6 @@ if (isset($_REQUEST['submit'])) {
                     <div class="col-12">
                       <label for="yourUsername" class="form-label">Username</label>
                       <div class="input-group has-validation">
-                        <span class="input-group-text" id="inputGroupPrepend">@</span>
                         <input type="text" name="username" class="form-control" id="yourUsername" required>
                         <div class="invalid-feedback">Please enter your username.</div>
                       </div>

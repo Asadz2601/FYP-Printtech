@@ -25,64 +25,66 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>PRINTTECH</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+    <title>PRINTTECH</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
 
-  <!-- Favicons -->
-  <link href="/Userpanel/Userpanel/assets/img/favicon.png" rel="icon">
-  <!-- <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon"> -->
+    <!-- Favicons -->
+    <link href="/Userpanel/Userpanel/assets/img/favicon.png" rel="icon">
+    <!-- <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon"> -->
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
 
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet">
 
 </head>
 
 <body>
 
-  <!-- ======= Header ======= -->
-  <header id="header" class="header fixed-top d-flex align-items-center">
+    <!-- ======= Header ======= -->
+    <header id="header" class="header fixed-top d-flex align-items-center">
 
-    <div class="d-flex align-items-center justify-content-between">
-      <a href="" class="logo d-flex align-items-center">
-        <img src="/Userpanel/Userpanel/assets/img/favicon.png" alt="">
-        <span class="d-none d-lg-block">PRINTTECH</span>
-      </a>
-      <i class="bi bi-list toggle-sidebar-btn"></i>
-    </div><!-- End Logo -->
+        <div class="d-flex align-items-center justify-content-between">
+            <a href="" class="logo d-flex align-items-center">
+                <img src="/Userpanel/Userpanel/assets/img/favicon.png" alt="">
+                <span class="d-none d-lg-block">PRINTTECH</span>
+            </a>
+            <i class="bi bi-list toggle-sidebar-btn"></i>
+        </div><!-- End Logo -->
 
-    <div class="search-bar">
-      <form class="search-form d-flex align-items-center" method="POST" action="#">
-        <input type="text" name="query" placeholder="Search" title="Enter search keyword">
-        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
-      </form>
-    </div><!-- End Search Bar -->
+        <div class="search-bar">
+            <form class="search-form d-flex align-items-center" method="POST" action="#">
+                <input type="text" name="query" placeholder="Search" title="Enter search keyword">
+                <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+            </form>
+        </div><!-- End Search Bar -->
 
-    <nav class="header-nav ms-auto">
-      <ul class="d-flex align-items-center">
+        <nav class="header-nav ms-auto">
+            <ul class="d-flex align-items-center">
 
-        <li class="nav-item d-block d-lg-none">
-          <a class="nav-link nav-icon search-bar-toggle " href="#">
-            <i class="bi bi-search"></i>
-          </a>
-        </li><!-- End Search Icon-->
+                <li class="nav-item d-block d-lg-none">
+                    <a class="nav-link nav-icon search-bar-toggle " href="#">
+                        <i class="bi bi-search"></i>
+                    </a>
+                </li><!-- End Search Icon-->
 
 
-        <li class="nav-item dropdown pe-3">
+                <li class="nav-item dropdown pe-3">
 
-          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <?php
+                    <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+                        <?php
               $username = $_SESSION['username'];
               
               $resu = mysqli_query($conn, "SELECT * FROM profile WHERE username = '$username' ");
@@ -91,65 +93,113 @@
                 echo "<img src='../img/" . $r['pic'] . "' alt='Profile' class='rounded-circle'>";
               } 
             ?>
-            
 
 
-             <span class="d-none d-md-block dropdown-toggle ps-2"><?php echo $row['username'];?></span>
+
+                        <span class="d-none d-md-block dropdown-toggle ps-2"><?php echo $row['username'];?></span>
 
 
-          </a><!-- End Profile Iamge Icon -->
+                    </a><!-- End Profile Iamge Icon -->
 
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-            <li class="dropdown-header">
-              <h6><?php echo $row['fullname']; ?></h6>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-<?php
+                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+                        <li class="dropdown-header">
+                            <h6><?php echo $row['fullname']; ?></h6>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <?php
         
 
   }
 }
 ?>
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.php">
-                <i class="bi bi-person"></i>
-                <span>My Profile</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center" href="users-profile.php">
+                                <i class="bi bi-person"></i>
+                                <span>My Profile</span>
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
 
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.php">
-                <i class="bi bi-gear"></i>
-                <span>Account Settings</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center" href="users-profile.php">
+                                <i class="bi bi-gear"></i>
+                                <span>Account Settings</span>
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
 
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="logout.php">
-                <i class="bi bi-box-arrow-right"></i>
-                <span>Sign Out</span>
-              </a>
-            </li>
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center" href="logout.php">
+                                <i class="bi bi-box-arrow-right"></i>
+                                <span>Sign Out</span>
+                            </a>
+                        </li>
 
-          </ul><!-- End Profile Dropdown Items -->
-        </li><!-- End Profile Nav -->
+                    </ul><!-- End Profile Dropdown Items -->
+                </li><!-- End Profile Nav -->
 
-      </ul>
-    </nav><!-- End Icons Navigation -->
+            </ul>
+        </nav><!-- End Icons Navigation -->
 
-  </header><!-- End Header -->
+    </header><!-- End Header -->
+    <br><br>
+
+    <?php
+      if(isset($_POST['submit'])){
+        // if( !empty($_SESSION['order_id'])) {
+        //     // Unset $_SESSION['order_id']
+        //     unset($_SESSION['order_id']);
+        // }
+        // else{
+       
+    $order_id = $_POST['order_id'];
+    $_SESSION['order_id'] = $order_id;
+    $usernamess = $_POST['username'];
+    $name = $_POST['order_name'];
+    $size = $_POST['order_size'];
+    $paper_quality = $_POST['paper_quality'];
+    $printing_side = $_POST['printing_side'];
+    $cutting = $_POST['cutting'];
+    $quantity = $_POST['quantity'];
+
+    $total = $quantity * 100;
+
+        $sql = "INSERT INTO `order` (order_id,username, order_name, size, paper_quality, printing_side, cutting, quantity, total_amount) 
+            VALUES ('$order_id','$usernamess', '$name', '$size', '$paper_quality', '$printing_side', '$cutting', '$quantity', '$total')";
+
+    $res = mysqli_query($conn, $sql);
+
+    if ($res) {
+      echo "<script>
+              alert('Order Placed Successfully');
+            </script>";
+  } else {
+      echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+  }
+  $msg = $total;
+  
+}
+      //}
+    ?>
 
     <!-- ======= Sidebar ======= -->
     <?php
  include('sidebar.php');
+?>
+    <?php
+// Generate a random number between 10 and 1000
+$randomNumber = rand(10, 1000);
+
+// Concatenate '#' with the random number
+$randomId = '#' . $randomNumber;
+
+
 ?>
 
     <main id="main" class="main">
@@ -165,55 +215,108 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Order Details</h5>
-                            <form>
+                            <form method="post" action="#">
                                 <div class="form-group row" style="font-weight: bold;">
                                     <div class="col-md-6">
                                         <label for="ex1">Order ID</label>
-                                        <input type="text" name="name" class="form-control" placeholder="#12334"
-                                            required>
+                                        <input type="text" name="order_id" class="form-control" placeholder="#12334"
+                                            readonly value="<?php echo $randomId ?>">
                                     </div>
+                                    <input type="hidden" name="username" value="<?php echo $username; ?>">
+
+
                                     <div class="col-md-6">
-                                        <label for="ex1">Order Name</label>
-                                        <input type="text" name="name" class="form-control"
-                                            placeholder="Select Product Name" required>
+                                        <label for="ex1">Product Name</label>
+                                        <select name="order_name" id="" class="form-control" required>
+                                            <option selected disabled>------ SELECT OPTION ------</option>
+                                            <?php
+                                            $query = mysqli_query($conn,"SELECT pname FROM product");
+                                            while($row = mysqli_fetch_assoc($query)){
+                                            ?>
+                                            <option value="<?php echo $row['pname']; ?>"><?php echo $row['pname']; ?>
+                                            </option>
+                                            <?php
+                                            }
+                                          ?>
+                                        </select>
                                     </div>
                                     <div class="col-md-6" style="margin-top: 15px;">
                                         <label for="ex1">Size</label>
-                                        <input type="text" name="name" class="form-control" placeholder="Select Size"
-                                            required>
+                                        <select name="order_size" id="" class="form-control" required>
+                                            <option selected disabled>------ SELECT OPTION ------</option>
+                                            <?php
+                                          $query = mysqli_query($conn, "SELECT size FROM product");
+                                          while ($row = mysqli_fetch_assoc($query)) {
+                                          ?>
+                                            <option value="<?php echo $row['size']; ?>"><?php echo $row['size']; ?>
+                                            </option>
+                                            <?php
+                                          }
+                                          ?>
+                                        </select>
                                     </div>
                                     <div class="col-md-6" style="margin-top: 15px;">
                                         <label for="ex1">Paper Quality</label>
-                                        <input type="text" name="name" class="form-control"
-                                            placeholder="Select Paper Quality" required>
+                                        <select name="paper_quality" id="" class="form-control" required>
+                                            <option selected disabled>------ SELECT OPTION ------</option>
+                                            <?php
+                                          $query = mysqli_query($conn, "SELECT pquality FROM product");
+                                          while ($row = mysqli_fetch_assoc($query)) {
+                                          ?>
+                                            <option value="<?php echo $row['pquality']; ?>">
+                                                <?php echo $row['pquality']; ?></option>
+                                            <?php
+                                          }
+                                          ?>
+                                        </select>
                                     </div>
 
                                     <div class="col-md-6" style="margin-top: 15px;">
                                         <label for="ex1">Printing Side</label>
-                                        <input type="text" name="name" class="form-control"
-                                            placeholder="Single or Double" required>
+                                        <select name="printing_side" id="printing_side" class="form-control" required>
+                                            <option value="" selected disabled>------ SELECT PRINT SIZE ------</option>
+                                            <?php
+                                                $query = mysqli_query($conn, "SELECT printsize FROM product");
+                                                while ($row = mysqli_fetch_assoc($query)) {
+                                                ?>
+                                            <option value="<?php echo $row['printsize']; ?>">
+                                                <?php echo $row['printsize']; ?></option>
+                                            <?php
+    }
+    ?>
+                                        </select>
                                     </div>
                                     <div class="col-md-6" style="margin-top: 15px;">
                                         <label for="ex1">Cutting</label>
-                                        <input type="text" name="name" class="form-control"
-                                            placeholder="Round, Straight">
+                                        <select name="cutting" id="" class="form-control" required>
+                                            <option selected disabled>------ SELECT OPTION ------</option>
+                                            <option>Straight</option>
+                                            <option>Round</option>
+
+                                        </select>
                                     </div>
                                     <div class="col-md-6" style="margin-top: 15px;">
-                                        <label for="ex1">Quantity</label>
-                                        <input type="text" name="name" class="form-control"
+                                        <label for="quantity">Quantity</label>
+                                        <input type="number" name="quantity" id="quantity" class="form-control"
                                             placeholder="Enter Quantity of order" required>
                                     </div>
                                     <div class="col-md-6" style="margin-top: 15px;">
-                                        <label for="ex1">Total Amount</label>
-                                        <input type="text" name="name" class="form-control" placeholder="">
+                                        <label for="total">Total Amount</label>
+                                        <input class="form-control" readonly type="text" id="total" value="">
                                     </div>
+
+
                                 </div>
                                 <div class="pre-next-btn" style="margin-top: 25px; float: right;">
-                                    <a style="background-color: #3498db;
-        padding: 10px 20px; font-size: 16px; color: #fff; border: none; border-radius: 5px; cursor: pointer; text-decoration: none;" href="upload-file.php">Previous</a>
-                                    <a style="background-color: #3498db;
-        padding: 10px 20px; font-size: 16px; color: #fff; border: none; border-radius: 5px; cursor: pointer; text-decoration: none;" href="customerdetail.php">Next</a>
-                                  </div>
+                                    <!-- <a style="background-color: #3498db;
+        padding: 10px 20px; font-size: 16px; color: #fff; border: none; border-radius: 5px; cursor: pointer; text-decoration: none;" href="upload-file.php">Previous</a> -->
+                                    <input type="submit" name="submit" value="Submit"
+                                        style="background-color: #3498db;
+        padding: 10px 20px; font-size: 16px; color: #fff; border: none; border-radius: 5px; cursor: pointer; text-decoration: none;">
+                                    <a href="upload-file.php"
+                                        style="background-color: #3498db;
+        padding: 10px 20px; font-size: 16px; color: #fff; border: none; border-radius: 5px; cursor: pointer; text-decoration: none;">Next</a>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -223,10 +326,32 @@
         </section>
     </main><!-- End #main -->
 
+    <script>
+    // Function to calculate total amount
+    function calculateTotal() {
+        // Get the quantity entered by the user
+        var quantity = parseFloat(document.getElementById('quantity').value);
+        var total = parseFloat(document.getElementById('total').value);
+        if (isNaN(quantity) || quantity == null) {
+            quantity = 0.00;
+            total = 0.00;
+        }
+        var totalAmount = quantity * 100;
+
+        // Display the total amount in the total input field
+        document.getElementById('total').value = totalAmount.toFixed(2); // A
+
+
+        //ssuming you want two decimal places
+        // Multiply the quantity by 100
+
+    }
+
+    // Attach an event listener to the quantity input field to recalculate total on change
+    document.getElementById('quantity').addEventListener('input', calculateTotal);
+    </script>
     <!-- ======= Footer ======= -->
-    <?php
-  include('footer.php');
- ?>
+
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>
 
@@ -236,7 +361,10 @@
     <!-- Template Main JS File -->
     <!-- <script src="assets/js/main.js"></script> -->
     <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
-  <div class="elfsight-app-517ba237-cf3e-444f-aa5d-c43210cada9d" data-elfsight-app-lazy></div>
+    <div class="elfsight-app-517ba237-cf3e-444f-aa5d-c43210cada9d" data-elfsight-app-lazy></div>
 </body>
 
 </html>
+<?php
+  include('footer.php');
+ ?>

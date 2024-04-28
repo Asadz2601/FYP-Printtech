@@ -1,4 +1,33 @@
+<?php
+include('connect/db.php');
+if(isset($_POST['submit'])){
+        
+  $name = $_POST['name'];
+  $email = $_POST['email'];
+  $phone = $_POST['phone'];
+  $whatsapp = $_POST['whatsapp'];
+  $address = $_POST['address'];
+  $delivery = $_POST['delivery'];
+  $delivery_address = $_POST['delivery_address'];
+  $totalpayment = $_POST['total_payment'];
 
+  $sql = "INSERT INTO customerdetail (name, email, phone, whatsapp, address, delivery, delivery_address, total_payment) 
+  VALUES ('$name', '$email', '$phone', '$whatsapp', '$address', '$delivery', '$delivery_address', '$totalpayment')";
+  $res = mysqli_query($conn, $sql);
+
+  if ($res) {
+    echo "<script>
+            alert('Customer Detail Entered Successfully');
+          </script>";
+} else {
+    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+}
+$msg = $total;
+
+
+    }
+  
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,31 +83,40 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Customer Details</h5>
-              <form>
+              <?php
+                $id = $_SESSION['order_id'];
+                $username = $_SESSION['username'];
+                $querys = mysqli_query($conn,"SELECT * FROM `users` WHERE username = '$username'");
+                $rows = mysqli_fetch_assoc($querys);
+                // Check if $id is properly populated
+                $query = mysqli_query($conn,"SELECT * FROM `order` WHERE order_id = '$id'");
+                $row = mysqli_fetch_assoc($query);
+              ?>
+              <form method="post" action="">
                 <div class="form-group row" style="font-weight: bold;">
                   <div class="col-md-6">
                     <label for="ex1">Name</label>
-                    <input type="text" name="name" class="form-control" placeholder="Enter your Name" required>
+                    <input type="text" name="name" value="<?php echo $rows['name']; ?>" class="form-control" placeholder="Enter your Name" required>
                   </div>
                   <div class="col-md-6">
                     <label for="ex1">Email</label>
-                    <input type="text" name="name" class="form-control" placeholder="Enter your Email" required>
+                    <input type="email" name="email" class="form-control" placeholder="Enter your Email" required>
                   </div>
                   <div class="col-md-6" style="margin-top: 15px;">
                     <label for="ex1">Contact No</label>
-                    <input type="phone" name="name" class="form-control" placeholder="Enter Your Phone No" required>
+                    <input type="number" name="phone" class="form-control" placeholder="Enter Your Phone No" required>
                   </div>
                   <div class="col-md-6" style="margin-top: 15px;">
                     <label for="ex1">Whatsapp No / Phone 2</label>
-                    <input type="text" name="name" class="form-control" placeholder="Enter Phone 2">
+                    <input type="number" name="whatsapp" class="form-control" placeholder="Enter Phone 2">
                   </div>
 
                   <div class="col-md-6" style="margin-top: 15px;">
                     <label for="ex1">Address</label>
-                    <input type="text" name="name" class="form-control" placeholder="Enter Your Address" required>
+                    <input type="text" name="address" class="form-control" placeholder="Enter Your Address" required>
                   </div>
                 </div>
-              </form>
+              
 
               <!-- Order Delivery Start  -->
               <h5 class="card-title" style="margin-top: 10px; margin-bottom: -27px;">Order Delivery</h5>
@@ -86,7 +124,7 @@
               <div class="form-group row" style="font-weight: bold;">
                 <div class="col-md-6" style="margin-top: 15px;">
                   <label for="inputState">Delivery Option</label>
-                  <select id="inputState" class="form-control">
+                  <select id="inputState" name="delivery" class="form-control">
                     <option selected>Choose option</option>
                     <option>Yes</option>
                     <option>No</option>
@@ -94,24 +132,29 @@
                 </div>
                 <div class="col-md-6" style="margin-top: 15px;">
                   <label for="ex1">Delivery Address</label>
-                  <input type="text" name="name" class="form-control" placeholder="Enter your delivery address">
+                  <input type="text" name="delivery_address" class="form-control" placeholder="Enter your delivery address">
                 </div>
                 <div class="col-md-6" style="margin-top: 15px;">
                   <label for="ex1">Total Amount</label>
-                  <input type="text" name="name" class="form-control" placeholder="">
+                  <input type="text" class="form-control" name="total_payment" value="<?php echo $row['total_amount'];?>"  placeholder="Total"><br>
                 </div>
               </div>
               
               <div class="pre-next-btn" style="margin-top: 25px; float: right;">
-                <a style="background-color: #3498db;
-        padding: 10px 20px; font-size: 16px; color: #fff; border: none; border-radius: 5px; cursor: pointer; text-decoration: none;" href="orderdetails.php">Previous</a>
-                <a style="background-color: #3498db;
-        padding: 10px 20px; font-size: 16px; color: #fff; border: none; border-radius: 5px; cursor: pointer; text-decoration: none;" href="#">Next</a>
+              <a style="background-color: #3498db;
+        padding: 10px 20px; font-size: 16px; color: #fff; border: none; border-radius: 5px; cursor: pointer; text-decoration: none;" href="uploadfile.php">Previous</a>
+                
+
+              <input type="submit" name="submit" value="Submit" style="background-color: #3498db;
+        padding: 10px 20px; font-size: 16px; color: #fff; border: none; border-radius: 5px; cursor: pointer; text-decoration: none;">
+                                    
+                <a  style="background-color: #3498db;
+        padding: 10px 20px; font-size: 16px; color: #fff; border: none; border-radius: 5px; cursor: pointer; text-decoration: none;" href="checkout.php">Next</a>
               </div>
             </div>
           </div>
         </div>
-
+        </form>
       </section>
     </section>
   </main><!-- End #main -->

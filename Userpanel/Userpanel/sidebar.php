@@ -31,20 +31,20 @@
   </li><!-- End Tables Nav -->
 
   <li class="nav-item">
-    <a class="nav-link collapsed" href="#">
+    <a class="nav-link collapsed" href="checkout.php">
       <i class="bi bi-credit-card-2-front"></i>
       <span>Payment Method</span>
     </a>
   </li><!-- End Charts Nav -->
 
   <li class="nav-item">
-    <a class="nav-link collapsed" href="#">
+    <a class="nav-link collapsed" href="orderdetails.php">
       <i class="bi bi-send-arrow-up"></i>
       <span>Place Order</span>
     </a>
   </li><!-- End Icons Nav -->
   <li class="nav-item">
-    <a class="nav-link collapsed" href="#">
+    <a class="nav-link collapsed" href="myorder.php">
       <i class="bi bi-grid"></i>
       <span>My Order</span>
     </a>

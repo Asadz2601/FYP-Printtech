@@ -233,29 +233,6 @@ if (mysqli_num_rows($result1) > 0) {
                           </div>
                         </div>
                       </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                       <div class="row mb-3">
                         <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Full Name</label>
                         <div class="col-md-8 col-lg-9">
@@ -423,7 +400,7 @@ if (mysqli_num_rows($result1) > 0) {
                   <div class="row mb-3">
                     <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current Password</label>
                     <div class="col-md-8 col-lg-9">
-                      <input name="password" type="password" class="form-control" id="currentPassword" oninput="validatePassword()" required>
+                      <input name="password" type="password" class="form-control" id="currentPassword" required>
                     </div>
                   </div>
 
@@ -440,8 +417,9 @@ if (mysqli_num_rows($result1) > 0) {
                       <input name="newpassword" type="password" class="form-control" id="renewPassword" oninput="validatePassword()" required>
                     </div>
                   </div>
+                  <div id="password-match-error" style="color: red;"></div>
 
-                  <div class="error-message" id="password-error"></div>
+                  <div class="error-message" id="password-error"  style="color: red;"></div>
 
                   <div class="text-center">
                     <button type="submit" name="psubmit" class="btn btn-primary">Change Password</button>
@@ -495,34 +473,33 @@ if (mysqli_num_rows($result1) > 0) {
 
 
     <script>
-      // function validatePassword() {
-      //   const currentPassword = document.getElementById('currentPassword').value;
-      //   const newPassword = document.getElementById('newPassword').value;
-      //   const renewPassword = document.getElementById('renewPassword').value;
-      //   const errorDiv = document.getElementById('password-error');
-
-      //   // Check for capital letters or special characters
-      //   if (/[A-Z!@#$%^&*(),.?":{}|<>]/.test(newPassword)) {
-      //     errorDiv.textContent = 'New password should not contain capital letters or special characters.';
-      //   } else if (newPassword !== renewPassword) {
-      //     errorDiv.textContent = 'New password and re-entered password do not match.';
-      //   } else {
-      //     errorDiv.textContent = '';
-      //   }
-      // }
-
       function validatePassword() {
-    const currentPassword = document.getElementById('currentPassword');
+    // const currentPassword = document.getElementById('currentPassword');
     const newPassword = document.getElementById('newPassword');
     const renewPassword = document.getElementById('renewPassword');
     const errorDiv = document.getElementById('password-error');
+    const errorMatchDiv = document.getElementById('password-match-error');
 
-    const password = renewPassword.value;
+    const newPasswordValue = newPassword.value;
+    const renewPasswordValue = renewPassword.value;
 
-    // Check for capital letters
-    if (!/[A-Z]/.test(password[0])) {
-        errorDiv.textContent = 'First letter of the password should be a capital letter.';
-        renewPassword.setCustomValidity('Invalid first letter');
+    // Check if newPassword and renewPassword match
+    if (newPasswordValue !== renewPasswordValue) {
+        errorMatchDiv.textContent = 'Passwords do not match.';
+        renewPassword.setCustomValidity('Passwords do not match');
+    } 
+
+    const password = renewPasswordValue;
+
+    if (password.length < 8) {
+        errorDiv.textContent = 'Password must be at least 8 characters long.';
+        renewPassword.setCustomValidity('Password too short');
+        return;
+    }
+
+    if (!/[a-zA-Z]/.test(password)) {
+        errorDiv.textContent = 'Password must contain at least one alphabet.';
+        renewPassword.setCustomValidity('Missing alphabet');
         return;
     }
 

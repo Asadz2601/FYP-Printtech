@@ -1,5 +1,5 @@
  <!-- ======= Footer ======= -->
- <footer id="footer" class="footer">
+ <footer id="footer" class="footer fixed-bottom">
     <div class="copyright">
       &copy; Copyright <strong><span>PRINTTECH</span></strong>. All Rights Reserved
     </div>

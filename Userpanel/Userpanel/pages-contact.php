@@ -7,7 +7,7 @@ if (!(isset($_SESSION['username']))) {
     header("Location: pages-login.php");
 }
 if (isset($_REQUEST['submit'])) {
-  $sql = "INSERT INTO   contact(name, email, subject, message) VALUES ('" . $_REQUEST['name'] . "','" . $_REQUEST['email'] . "', '" . $_REQUEST['subject'] . "', '" . $_REQUEST['message'] . "')";
+  $sql = "INSERT INTO   feedback(name, email, subject, message) VALUES ('" . $_REQUEST['name'] . "','" . $_REQUEST['email'] . "', '" . $_REQUEST['subject'] . "', '" . $_REQUEST['message'] . "')";
   if ($conn->query($sql) === TRUE) {
     echo "<script>alert('Sent Successfully')  </script>";
   } else {
@@ -141,9 +141,9 @@ if (mysqli_num_rows($result) > 0) {
 
 
 //Load Composer's autoloader
-require 'C:\xampp\htdocs\Userpanel\php-mailer\Exception.php';
-require 'C:\xampp\htdocs\Userpanel\php-mailer\PHPMailer.php';
-require 'C:\xampp\htdocs\Userpanel\php-mailer\SMTP.php';
+require 'D:\xampp\htdocs\Userpanel\Userpanel\php-mailer\Exception.php';  // enter your path in Userpanel/php-mailer/Exception.php
+require 'D:\xampp\htdocs\Userpanel\Userpanel\php-mailer\PHPMailer.php';  // enter your path in Userpanel/php-mailer/PHPMailer.php
+require 'D:\xampp\htdocs\Userpanel\Userpanel\php-mailer\SMTP.php';  // enter your path in Userpanel/php-mailer/SMTP.php
 
 //Create an instance; passing `true` enables exceptions
   $mail = new PHPMailer(true);

@@ -1,3 +1,3 @@
 <?php
-    $conn = mysqli_connect("localhost","root","","userpanel") or die("Database Not Connected".mysqli_connect_error($con));
+    $conn = mysqli_connect("localhost","root","","panel") or die("Database Not Connected".mysqli_connect_error($con));
 ?>
