@@ -23,12 +23,18 @@ if ($username === "admin" ) {
               <i class="bi bi-menu-button-wide"></i><span>SuperAdmin</span></i>
             </a>
           </li>';
+
+          echo '<li class="nav-item">
+          <a class="nav-link collapsed" href="view-admin.php">
+          <i class="bi bi-view-list"></i><span>View Admin</span></i>
+          </a>
+        </li>';
 }
 ?><!-- End Components Nav -->
 
   <li class="nav-item">
     <a class="nav-link collapsed" href="view-user.php">
-      <i class="bi bi-journal-text"></i><span>View Users</span></i>
+    <i class="bi bi-view-list"></i><span>View Users</span></i>
     </a>
   </li><!-- End Forms Nav -->
 
@@ -40,13 +46,13 @@ if ($username === "admin" ) {
 
   <li class="nav-item">
     <a class="nav-link collapsed" href="view-product.php">
-      <i class="bi bi-layout-text-window-reverse"></i><span>View Product</span></i>
+    <i class="bi bi-view-list"></i><span>View Product</span></i>
     </a>
   </li><!-- End Tables Nav -->
   
   <li class="nav-item">
     <a class="nav-link collapsed" href="all-orders.php">
-      <i class="bi bi-layout-text-window-reverse"></i><span>All Orders</span></i>
+    <i class="bi bi-list-stars"></i><span>All Orders</span></i>
     </a>
   </li><!-- End Tables Nav -->
 
@@ -58,11 +64,17 @@ if ($username === "admin" ) {
 
   <li class="nav-item">
     <a class="nav-link collapsed" href="pending-order.php">
-      <i class="bi bi-gem"></i><span>Pending Order</span></i>
+    <i class="bi bi-hourglass"></i><span>Pending Order</span></i>
     </a>
   </li><!-- End Icons Nav -->
 
-  <li class="nav-heading">Pages</li>
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="payment.php">
+    <i class="bi bi-credit-card-2-back"></i><span>Payment</span></i>
+    </a>
+  </li><!-- End Icons Nav -->
+
+  <li class="nav-heading text-light">Pages</li>
 
   <li class="nav-item">
     <a class="nav-link collapsed" href="users-profile.php">
@@ -79,6 +91,16 @@ if ($username === "admin" ) {
 </li>
  
 <!-- End Contact Page Nav -->
+
+<li class="nav-item">
+    <a class="nav-link collapsed" href="contact.php">
+    <i class="bi bi-bar-chart"></i>
+        <span>Feedback</span>
+    </a>
+</li>
+ 
+<!-- End Contact Page Nav -->
+
 
   <li class="nav-item">
     <a class="nav-link collapsed" href="report.php">

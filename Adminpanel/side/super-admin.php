@@ -50,13 +50,13 @@ include("assets/backend/super-admin.php");
         <div id="passwordError" style="color: red;" ></div>
      </div>
 
+     <input type="file" name="choosefile">
+
      <div class="mb-3 form-check">
         <input type="checkbox" class="form-check-input" id="exampleCheck1" >
         <label class="form-check-label" for="exampleCheck1">Check me out</label>
      </div>
-
-     <input type="file" name="choosefile">
-
+     
      <button type="submit" class="btn btn-primary form-control" name="submit">Create Account</button>
      </form>
         </div>

@@ -17,25 +17,36 @@ include("nav.php");
       <table class="table" id="dashboardTable">
         <thead>
           <tr class="text-center">
-            <th scope="col">Order #</th>
+            <th scope="col">Order_id</th>
             <th scope="col">Username</th>
             <th scope="col">File Name</th>
+            <th scope="col">File</th>
             <th class="dwn" scope="col">Download</th>
           </tr>
         </thead>
         <tbody>
           <!-- Fetch data from database -->
           <?php
-            $orderquery = mysqli_query($conn,"SELECT * FROM `uploadfile` ");
-            if (!$orderquery) {
-              die("Query failed: " . mysqli_error($conn));
-            }
-            while($row = mysqli_fetch_assoc($orderquery)){
+              $orderquery = mysqli_query($conn, "SELECT * FROM `uploadfile`");
+              if (!$orderquery) {
+                 die("Query failed: " . mysqli_error($conn));
+              }
+
+              while ($row = mysqli_fetch_assoc($orderquery)) {
+          // print_r($row);
           ?>
+          
           <tr>
             <td><?php echo htmlspecialchars($row['order_id']); ?></td>
             <td><?php echo htmlspecialchars($row['username']); ?></td>
-            <td><?php echo htmlspecialchars($row['filename']); ?></td>             
+            <td><?php echo htmlspecialchars($row['filename']); ?></td>
+            <td>
+        <?php
+       
+        // Display the PDF file using <embed> tag
+        echo "<embed src='../../user-panel/upload_PDF/".$row['filename']."' type='application/pdf' width='100%' height='600px' />";
+        ?>
+    </td>     
             <td>
               <button class="btn btn-primary download-btn">Download PDF</button>
             </td>             
