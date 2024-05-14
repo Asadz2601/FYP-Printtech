@@ -38,7 +38,7 @@ include("nav.php");
         while($row = mysqli_fetch_assoc($orderquery)){
           ?>
             <tr>
-              <td><?php echo $row['id'] ?></td>
+              <td><?php echo $row['order_id'] ?></td>
               <td><?php echo $row['username'] ?></td>
               <td><?php echo $row['size'] ?></td>
               <td><?php echo $row['total_amount'] ?></td>

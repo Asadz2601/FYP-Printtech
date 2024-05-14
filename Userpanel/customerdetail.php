@@ -45,6 +45,9 @@ include('side.php');
                   <label for="ex1">Name</label>
                   <input type="text" name="name" value="<?php echo $rows['name']; ?>" class="form-control" placeholder="Enter your Name" required>
                 </div>
+                
+                <input type="text" name="order_id" value="<?php echo $order_id; ?>" class="form-control" hidden required>
+
                 <div class="col-md-6">
                   <label for="ex1">Email</label>
                   <input type="email" name="email" class="form-control" placeholder="Enter your Email" required>

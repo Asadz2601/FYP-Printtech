@@ -1,12 +1,17 @@
 <?php
-// session_start(); // Start the session if not already started
-include('connect/db.php');
 
+//  session_start(); // Start the session if not already started
+include('connect/db.php');
 $order_id = $_SESSION['order_id'];
+// echo($order_id);
+// die();
 
 if(isset($_POST['submit'])) {
-        
+    $order_id = $_SESSION['order_id'];
+    // echo($order_id);
+    // die();       
     $name = $_POST['name'];
+    $order_id = $_POST['order_id'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
     $whatsapp = $_POST['whatsapp'];
@@ -22,10 +27,10 @@ if(isset($_POST['submit'])) {
 
     if ($stmt_update_profile->rowCount() > 0) {
         // Insert customer details into customerdetail table
-        $sql = "INSERT INTO customerdetail (name, email, phone, whatsapp, address, delivery, delivery_address, total_payment) 
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO customerdetail (name,order_id, email, phone, whatsapp, address, delivery, delivery_address, total_payment) 
+                VALUES (?, ?, ?,?, ?, ?, ?, ?, ?)";
         $stmt = $pdo->prepare($sql);
-        $stmt->execute([$name, $email, $phone, $whatsapp, $address, $delivery, $delivery_address, $totalpayment]);
+        $stmt->execute([$name,$order_id ,$email, $phone, $whatsapp, $address, $delivery, $delivery_address, $totalpayment]);
 
         if ($stmt->rowCount() > 0) {
             echo "<script>

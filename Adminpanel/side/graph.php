@@ -7,7 +7,7 @@ include("nav.php");
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "panel";
+$dbname = "panels";
 
 $link = new mysqli($servername, $username, $password, $dbname);
 

@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 include('connect/db.php');
 if($_SESSION['order_id']==null){
     echo "<script>alert('First Enter Order Detail')  </script>";

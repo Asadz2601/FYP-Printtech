@@ -138,7 +138,7 @@ $data_json = json_encode($data);
         $servername = "localhost";
         $username = "root";
         $password = "";
-        $dbname = "panel";
+        $dbname = "panels";
 
         $link = new mysqli($servername, $username, $password, $dbname);
 

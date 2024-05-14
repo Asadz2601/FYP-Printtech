@@ -32,37 +32,41 @@ x<!-- ======= Footer ======= -->
 </script>
 
 <script>
-        // Get the select element
-        var deliverySelect = document.getElementById("inputState");
-        // Get the total amount input element
-        var totalPaymentInput = document.getElementById("total_payment");
+       // Get the select element
+var deliverySelect = document.getElementById("inputState");
+// Get the total amount input element
+var totalPaymentInput = document.getElementById("total_payment");
 
-        // Add event listener for change event
-        deliverySelect.addEventListener("change", function() {
-            // Get the selected option
-            var selectedOption = deliverySelect.value;
-            // If "Yes" is selected
-            if (selectedOption === "Yes") {
-                // Update the total amount by adding 200
-                var newTotalAmount = parseFloat(totalPaymentInput.value) + 200;
-                totalPaymentInput.value = newTotalAmount.toFixed(2); // Round to 2 decimal places
+// Store the original total payment
+var originalTotalPayment = parseFloat(totalPaymentInput.value);
 
-                // Send AJAX request to update total_amount in order table
-                var xhr = new XMLHttpRequest();
-                xhr.open("POST", "update_total_amount.php", true);
-                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                xhr.onreadystatechange = function() {
-                    if (xhr.readyState === 4 && xhr.status === 200) {
-                        // Handle the response if needed
-                        console.log(xhr.responseText);
-                    }
-                };
-                xhr.send("total_amount=" + newTotalAmount); // Send the new total amount to the server
-            } else {
-                // If "No" is selected, revert to the original total amount
-                totalPaymentInput.value = "100";
+// Add event listener for change event
+deliverySelect.addEventListener("change", function() {
+    // Get the selected option
+    var selectedOption = deliverySelect.value;
+    // If "Yes" is selected
+    if (selectedOption === "Yes") {
+        // Update the total amount by adding 200
+        var newTotalAmount = originalTotalPayment + 200;
+        totalPaymentInput.value = newTotalAmount.toFixed(2); // Round to 2 decimal places
+
+        // Send AJAX request to update total_amount in order table
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "update_total_amount.php", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                // Handle the response if needed
+                console.log(xhr.responseText);
             }
-        });
+        };
+        xhr.send("total_amount=" + newTotalAmount); // Send the new total amount to the server
+    } else {
+        // If "No" is selected, revert to the original total amount
+        totalPaymentInput.value = originalTotalPayment.toFixed(2);
+    }
+});
+
     </script>
 
 

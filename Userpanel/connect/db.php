@@ -1,7 +1,7 @@
 <?php
-    $conn = mysqli_connect("localhost","root","","panel") or die("Database Not Connected".mysqli_connect_error($con));
+    $conn = mysqli_connect("localhost","root","","panels") or die("Database Not Connected".mysqli_connect_error($con));
     $host = 'localhost'; // Your host
-$dbname = 'panel'; // Your database name
+$dbname = 'panels'; // Your database name
 $username = 'root'; // Your database username
 $password = ''; // Your database password
     try {

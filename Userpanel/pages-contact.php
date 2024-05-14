@@ -108,9 +108,9 @@ if (mysqli_num_rows($result) > 0) {
 
 
 //Load Composer's autoloader
-require 'D:\xampp\htdocs\user-panel\php-mailer\Exception.php';  // enter your path in Userpanel/php-mailer/Exception.php
-require 'D:\xampp\htdocs\user-panel\php-mailer\PHPMailer.php';  // enter your path in Userpanel/php-mailer/PHPMailer.php
-require 'D:\xampp\htdocs\user-panel\php-mailer\SMTP.php';  // enter your path in Userpanel/php-mailer/SMTP.php
+require 'C:\xampp\htdocs\user-panel\php-mailer\Exception.php';  // enter your path in Userpanel/php-mailer/Exception.php
+require 'C:\xampp\htdocs\user-panel\php-mailer\PHPMailer.php';  // enter your path in Userpanel/php-mailer/PHPMailer.php
+require 'C:\xampp\htdocs\user-panel\php-mailer\SMTP.php';  // enter your path in Userpanel/php-mailer/SMTP.php
 
 //Create an instance; passing `true` enables exceptions
   $mail = new PHPMailer(true);
